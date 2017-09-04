@@ -12,3 +12,8 @@ TEST(ToSoundex, HandleEmptyLine) {
 TEST(ToSoundex, HandleLineWithoutRepeat) {
     ASSERT_EQ("25", to_soundex("KHAWN"));
 }
+
+TEST(ToSoundex, HandleLineWithRepeat) {
+    ASSERT_EQ("1236", to_soundex("PFISTER"));
+    ASSERT_EQ("11", to_soundex("BOBBY"));
+}

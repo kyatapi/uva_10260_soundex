@@ -18,9 +18,11 @@ string to_soundex(const string& word) {
     //A,   B,   C,   D,   E,   F,   G,   H,   I,   J,   K,   L,   M,   N,   O,   P,   Q,   R,   S,   T,   U,   V,   W,   X,   Y,   Z
 
     string soundex = "";
-    for_each(word.begin(), word.end(), [&soundex](char letter) {
+    char last_soundex_letter = ' ';
+    for_each(word.begin(), word.end(), [&soundex, &last_soundex_letter](char letter) {
         char soundex_letter = letter_to_soundex.at(letter - 'A');
-        if(soundex_letter != ' ') soundex.push_back(soundex_letter);
+        if(soundex_letter != ' ' && soundex_letter != last_soundex_letter) soundex.push_back(soundex_letter);
+        last_soundex_letter = soundex_letter;
     });
     return soundex;
 }
