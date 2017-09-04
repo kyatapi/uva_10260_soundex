@@ -30,8 +30,9 @@ string to_soundex(const string& word) {
 int main(int argc, char **argv) {
     run_test(argc, argv);
 
+    const string eol = "\n";
     string word = "";
     while(getline(cin, word)) {
-        cout << to_soundex(word);
+        cout << to_soundex(word) << eol;
     }
 }
